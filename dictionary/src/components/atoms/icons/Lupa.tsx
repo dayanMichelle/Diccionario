@@ -1,5 +1,6 @@
 type Props = {
   className?: string;
+  onClick?: () => void;
 }
 const Lupa = (props: Props) => (
   <svg
