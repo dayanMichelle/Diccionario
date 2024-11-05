@@ -3,11 +3,10 @@ import Lupa from '../icons/Lupa'
 import styles from './Input.module.css'
 
 type InputProps = {
-  result: any,
   searchWord: (word: string) => void
 }
 
-export const Input = ({ result, searchWord }: InputProps) => {
+export const Input = ({ searchWord }: InputProps) => {
   const [word, setWord] = useState<string>('')
   // const meaning = result?.meanings?.[0]?.definitions?.[0]?.definition || 'No definition found'
   return (

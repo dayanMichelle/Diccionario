@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Input } from "./components/atoms/input/Input"
-import Word from "./components/moleculs/word/Word"
+import { Meaning } from "./components/molecules/meaning/Meaning"
+import Word from "./components/molecules/word/Word"
+import './index.css'
 
 function App() {
   const [result, setResult] = useState<any>()
@@ -18,13 +20,15 @@ function App() {
       console.error('Error fetching the word:', error)
     }
   }
-
+console.log(result?.meanings)
   return (
-    <>
-      <h1>Dictionary</h1>
+    <div className="app">
       <Input result={result} searchWord={searchWord} />
-      <Word word={result?.word}/>
-    </>
+      <Word word={result?.word} pronunciation={result?.phonetic} sound={result?.phonetics[0].audio}/>
+      <i className="text">noun</i>
+      <hr></hr>
+      <Meaning list={result?.meanings} />
+    </div>
   )
 }
 
