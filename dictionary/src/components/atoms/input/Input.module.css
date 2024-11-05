@@ -1,0 +1,23 @@
+.search {
+  min-width: 327px;
+  max-width: 720px;
+  height: 48px;
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 16px;
+  padding-left: 24px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.search:focus {
+  outline: none;
+}
+.input {
+  position: relative;
+}
+.icon {
+  position: absolute;
+  padding-right: 24px;
+  top: calc(50% - 12px);
+  right: 0;
+}
