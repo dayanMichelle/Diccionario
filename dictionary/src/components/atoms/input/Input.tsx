@@ -1,14 +1,13 @@
-import { useState } from 'react'
 import Lupa from '../icons/Lupa'
 import styles from './Input.module.css'
 
 type InputProps = {
-  searchWord: (word: string) => void
+  searchWord: (word: string) => void,
+  setWord: (word: string) => void,
+  word: string
 }
 
-export const Input = ({ searchWord }: InputProps) => {
-  const [word, setWord] = useState<string>('')
-  // const meaning = result?.meanings?.[0]?.definitions?.[0]?.definition || 'No definition found'
+export const Input = ({ searchWord, setWord, word }: InputProps) => {
   return (
     <>
       <div className={styles.input}>
