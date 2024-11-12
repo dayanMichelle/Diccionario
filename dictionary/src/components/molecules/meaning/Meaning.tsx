@@ -1,17 +1,12 @@
 
-import { useState } from "react"
-import { useSearch } from "../../../hooks/useSearch"
+import { Link } from "react-router-dom"
 
 type MeaningProps = {
   list: any[],
   searchWord: (word: string) => void
 }
-export const Meaning = ({ list = [],searchWord }: MeaningProps) => {
+export const Meaning = ({ list = [] }: MeaningProps) => {
   const synonyms = list[1]?.synonyms[0]
-  const [searchTerm, setSearchTerm] = useState<string>('')
-  const { data } = useSearch(searchTerm)
-
-
 
   return (
     <div>
@@ -31,7 +26,7 @@ export const Meaning = ({ list = [],searchWord }: MeaningProps) => {
         </div>
       ))}
       {
-        synonyms && <p>Synonyms <a onClick={()=> searchWord(synonyms)}>{synonyms}</a></p>
+        synonyms && <p>Synonyms <Link to={`/${synonyms}`}>{synonyms}</Link></p>
       }
 
 

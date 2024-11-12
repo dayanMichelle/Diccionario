@@ -8,17 +8,16 @@ export const HomePage = () => {
 
   const [word, setWord] = useState<string>('')
   const [searchTerm, setSearchTerm] = useState<string>('')
-  const { data } = useSearch(searchTerm)
+  const { data } = useSearch()
 
-  // Función para manejar la búsqueda
   const searchWord = (word) => {
-    setSearchTerm(word) // Actualiza el término de búsqueda solo cuando el usuario hace clic
+    setSearchTerm(word)
   }
 
 
   return (
     <div className="app">
-      <Input word={word} setWord={setWord} result={data} searchWord={searchWord} />
+      <Input word={word} setWord={setWord} result={data} />
       {
         !data && <p>Search for a word to get its meaning</p>
       }
