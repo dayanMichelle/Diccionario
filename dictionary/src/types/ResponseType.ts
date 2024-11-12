@@ -1,36 +1,35 @@
-interface License {
-  name: string;
-  url: string;
-}
-
-interface Phonetic {
+type Pronunciation = {
   text: string;
   audio: string;
   sourceUrl: string;
-  license: License;
-}
+  license: {
+    name: string;
+    url: string;
+  };
+};
 
-interface Definition {
+type Definition = {
   definition: string;
   synonyms: string[];
   antonyms: string[];
   example?: string;
-}
+};
 
-interface Meaning {
+type Meaning = {
   partOfSpeech: string;
   definitions: Definition[];
   synonyms: string[];
   antonyms: string[];
-}
+};
 
-interface WordData {
+export type WordData = {
   word: string;
-  phonetic?: string;
-  phonetics: Phonetic[];
+  phonetic: string;
+  phonetics: Pronunciation[];
   meanings: Meaning[];
-  license: License;
+  license: {
+    name: string;
+    url: string;
+  };
   sourceUrls: string[];
-}
-
-export const ResponseType: WordData[] = [];
+};

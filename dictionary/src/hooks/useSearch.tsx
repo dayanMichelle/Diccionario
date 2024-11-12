@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
+import { WordData } from '../types/ResponseType';
 
 export const useSearch = () => {
   const { id } = useParams<{ id: string }>();
 
-  const [data, setData] = useState(null)
+  const [data, setData] = useState<WordData | null>(null)
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${id}`)
-        console.log(response)
         if (!response.ok) {
           throw new Error('Network response was not ok')
         }
